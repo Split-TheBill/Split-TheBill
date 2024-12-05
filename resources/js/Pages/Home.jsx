@@ -4,6 +4,7 @@ import Hero from "../Components/Hero/Hero";
 // import Cloud from "@/Components/Cloud/Cloud";
 import Gradient from "@/Components/Gradient/Gradient";
 import About from "@/Components/About/About";
+import Catalog from "@/Components/Catalog/Catalog";
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
         {/* <Cloud/> */}
         <Gradient/>
         <About/>
+        <Catalog/>
     </div>
 };
 
