@@ -5,10 +5,13 @@ import Hero from "../Components/Hero/Hero";
 import Gradient from "@/Components/Gradient/Gradient";
 import About from "@/Components/About/About";
 import Catalog from "@/Components/Catalog/Catalog";
+import Star from "@/Components/Star/Star";
+import Starfield from "react-starfield";
 
 
 const Home = () => {
     return <div className="overflow-x-hidden">
+        <Starfield/>
         <Navbar/>
         <Hero/>
         {/* <Cloud/> */}
