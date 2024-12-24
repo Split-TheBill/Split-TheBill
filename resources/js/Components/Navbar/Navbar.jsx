@@ -31,14 +31,24 @@ const Navbar = () => {
                     </ul>
                 </div>
                 {/* Menu Section */}
-                <div className="flex items-center gap-6">
-                    <button className="hover:bg-custom-dark text-white font-semibold hover:text-white rounded-[15px] border-2 border-custom-dark px-6 py-2 duration-200 hidden md:block">
+                <div className="flex items-center gap-6 relative z-10">
+                    {/* Tombol Login */}
+                    <a
+                        href="/login" // Gunakan "href" jika ingin redirect ke halaman login
+                        className="hover:bg-custom-dark text-white font-semibold hover:text-white rounded-[15px] border-2 border-custom-dark px-6 py-2 duration-200 hidden md:block"
+                    >
                         Login
-                    </button>
-                    <button className="hover:bg-custom-dark text-white hover:text-white rounded-[15px] bg-gradient-to-br from-custom-start to-custom-end px-6 py-2 duration-200 hidden md:block">
+                    </a>
+
+                    {/* Tombol Register */}
+                    <a
+                        href="/register" // Gunakan "href" jika ingin redirect ke halaman register
+                        className="hover:bg-custom-dark text-white hover:text-white rounded-[15px] bg-gradient-to-br from-custom-start to-custom-end px-6 py-2 duration-200 hidden md:block"
+                    >
                         Register
-                    </button>
+                    </a>
                 </div>
+
                 {/* Hamburger Menu */}
                 <div className="md:hidden">
                     <button aria-label="Open Menu">
