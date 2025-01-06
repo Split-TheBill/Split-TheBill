@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Starfield from "react-starfield";
+import { Link } from "@inertiajs/react";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -7,19 +8,33 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Lakukan aksi login di sini (misalnya, panggil endpoint API)
         console.log({ email, password });
     };
 
     return (
         <>
+            {/* Starfield Background */}
             <Starfield />
-            <div className="min-h-screen flex items-center justify-center bg-[#06061C]">
+            <section className="min-h-screen flex items-center justify-center bg-[#06061C]">
+                {/* Logo Section */}
+                <div className="absolute top-4 left-[120px]">
+                    <Link href="/home">
+                        {" "}
+                        {/* Gunakan Link untuk routing dengan Inertia */}
+                        <img
+                            src="images/Logo_New.svg"
+                            alt="Logo"
+                            className="w-[200px] h-[200px] cursor-pointer hover:opacity-80"
+                        />
+                    </Link>
+                </div>
+
+                {/* Login Box */}
                 <div className="bg-white bg-opacity-10 p-8 rounded-lg shadow-lg backdrop-blur-md w-full max-w-md">
                     <h2 className="text-2xl font-bold text-white text-center mb-6">
                         Login
                     </h2>
-                    <form className="space-y-6">
+                    <form className="space-y-6" onSubmit={handleSubmit}>
                         {/* Email Input */}
                         <div>
                             <label
@@ -31,6 +46,8 @@ export default function Login() {
                             <input
                                 type="email"
                                 id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter your email"
                                 className="mt-1 block w-full bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
@@ -48,6 +65,8 @@ export default function Login() {
                             <input
                                 type="password"
                                 id="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Enter your password"
                                 className="mt-1 block w-full bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-2 focus:ring-indigo-500 focus:border-indigo-500"
                                 required
@@ -97,7 +116,7 @@ export default function Login() {
                         </a>
                     </p>
                 </div>
-            </div>
+            </section>
         </>
     );
 }

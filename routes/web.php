@@ -35,3 +35,7 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
+
+Route::get('/home', function () {
+    return inertia('Home'); // Komponen Dashboard React
+})->name('home  ');
