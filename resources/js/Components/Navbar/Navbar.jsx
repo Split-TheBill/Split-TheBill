@@ -15,13 +15,13 @@ const Navbar = () => {
                 </div>
                 {/* Menu Section */}
                 <div className="hidden md:block">
-                    <ul className="flex items-center gap-[70px] text-white">
+                    <ul className="flex items-center gap-[100px] text-white">
                         {NavbarMenu.map((item) => {
                             return (
                                 <li key={item.id}>
                                     <a
                                         href={item.link}
-                                        className="inline-block py-1 px-3 hover:text-custom-dark font-semibold"
+                                        className="inline-block py-1 px-3 hover:text-custom-dark font-extrabold"
                                     >
                                         {item.title}
                                     </a>
