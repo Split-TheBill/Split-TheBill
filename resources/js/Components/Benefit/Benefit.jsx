@@ -23,7 +23,7 @@ const Benefit = () => {
 
             {/* Grid Container */}
             <div className="container mx-auto px-4 py-12 max-w-4xl relative z-10">
-                <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden pb-12">
+                <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden mt-1">
                     <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
                         {/* Card 1 */}
                         <div className="p-6 text-center">

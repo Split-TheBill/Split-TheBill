@@ -41,14 +41,14 @@ const Carousel = () => {
                         <img
                             src={image}
                             alt={`Slide ${index + 1}`}
-                            className="w-full max-w-[1200px] h-auto object-cover rounded-xl shadow-lg"
+                            className="w-full max-w-[1100px] h-auto object-cover rounded-xl shadow-lg"
                         />
                     </div>
                 ))}
             </div>
 
             {/* Indikator */}
-            <div className="absolute bottom-6 flex justify-center gap-3 -mt-10">
+            <div className="absolute bottom-6 flex justify-center gap-3">
                 {images.map((_, index) => (
                     <button
                         key={index}

@@ -85,4 +85,5 @@ class ProductResource extends Resource
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
     }
+
 }

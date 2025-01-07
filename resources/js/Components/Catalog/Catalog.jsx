@@ -32,9 +32,9 @@ const Catalog = () => {
                             className="bg-white shadow-lg rounded-lg overflow-hidden"
                         >
                             <img
-                                src={`http://127.0.0.1:8000/${product.image}`}
+                                src={`http://127.0.0.1:8000/storage/${product.image}`}
                                 alt={product.name}
-                                className="w-full h-48 object-cover"
+                                className="w-[200px] h-[200px] object-cover place-items-center"
                             />
                             <div className="p-4">
                                 <h2 className="text-lg font-semibold mb-2">
