@@ -33,14 +33,16 @@ export default {
                 "custom-start": "#7D2AE7",
                 "custom-end": "#1C8CDB",
                 "grad-1": "#173976",
+                "product_color": "#A1C0E5",
+                "langganan": "#18182C",
             },
 
             backgroundImg: {
                 cloud: "url('images/Awan_section.svg')",
             },
 
-            boxShadow:{
-                'white-cloud': '0 20px 30px rgba(255, 255, 255, 0.5)',
+            boxShadow: {
+                "white-cloud": "0 20px 30px rgba(255, 255, 255, 0.5)",
             },
         },
     },

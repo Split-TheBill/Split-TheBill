@@ -17,7 +17,9 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
-
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Grid;
 
 
 class ProductResource extends Resource
@@ -26,50 +28,50 @@ class ProductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form
+public static function form(Form $form): Form
 {
     return $form
         ->schema([
-            TextInput::make('name')
-                ->label('Nama Produk')
-                ->required(),
-            TextInput::make('price')
-                ->label('Harga')
-                ->numeric()
-                ->required(),
-            FileUpload::make('image')
-                ->label('Gambar')
-                ->directory('products')
-                ->image(),
-            Textarea::make('description')
-                ->label('Deskripsi')
-                ->required(),
+            Card::make([
+                TextInput::make('name')
+                    ->label('Nama Produk')
+                    ->required(),
+                FileUpload::make('image')
+                    ->label('Gambar Produk')
+                    ->image()
+                    ->directory('products')
+                    ->required(),
+                TextInput::make('price')
+                    ->label('Harga Produk (Umum)')
+                    ->numeric()
+                    ->required(),
+                TextInput::make('price_per_month')
+                    ->label('Harga Langganan (Per Bulan)')
+                    ->numeric()
+                    ->required(),
+            ]),
         ]);
 }
 
-
-    public static function table(Table $table): Table
+public static function table(Table $table): Table
 {
     return $table
         ->columns([
-            TextColumn::make('name')->label('Nama')->sortable(),
-            TextColumn::make('price')->label('Harga')->money('IDR')->sortable(),
-            ImageColumn::make('image')->label('Gambar')->disk('public'),
-            TextColumn::make('description')->label('Deskripsi')->limit(50),
-        ])
-        ->filters([
-            // Tambahkan filter jika diperlukan
-        ])
-        ->actions([
-            Tables\Actions\EditAction::make(),
-            Tables\Actions\DeleteAction::make(),
-        ])
-        ->bulkActions([
-            Tables\Actions\DeleteBulkAction::make(),
+            TextColumn::make('name')
+                ->label('Nama Produk')
+                ->searchable()
+                ->sortable(),
+            ImageColumn::make('image')
+                ->label('Gambar')
+                ->circular(),
+            TextColumn::make('price')
+                ->label('Harga Umum')
+                ->money('idr', true),
+            TextColumn::make('price_per_month')
+                ->label('Harga Per Bulan')
+                ->money('idr', true), // Format sebagai mata uang
         ]);
 }
-
-
     public static function getRelations(): array
     {
         return [

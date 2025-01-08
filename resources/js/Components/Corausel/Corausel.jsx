@@ -25,7 +25,7 @@ const Carousel = () => {
     };
 
     return (
-        <div className="relative w-full h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden -mt-[400px]">
+        <div className="relative w-full flex items-center justify-center overflow-hidden -mt-[70vh] rounded-lg">
             {/* Carousel Container */}
             <div
                 className="flex transition-transform duration-700 ease-in-out"
@@ -36,27 +36,27 @@ const Carousel = () => {
                 {images.map((image, index) => (
                     <div
                         key={index}
-                        className="flex-shrink-0 w-full h-full flex items-center justify-center"
+                        className="flex-shrink-0 w-full h-[40vh] sm:h-[50vh] lg:h-[55vh] flex items-center justify-center"
                     >
                         <img
                             src={image}
                             alt={`Slide ${index + 1}`}
-                            className="w-full max-w-[1100px] h-auto object-cover rounded-xl shadow-lg"
+                            className="w-full max-w-[1100px] h-full object-contain rounded-lg shadow-md"
                         />
                     </div>
                 ))}
             </div>
 
             {/* Indikator */}
-            <div className="absolute bottom-6 flex justify-center gap-3">
+            <div className="absolute bottom-4 flex justify-center gap-2">
                 {images.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => goToSlide(index)}
-                        className={`w-2 h-2 rounded-full ${
+                        className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
                             index === currentIndex
                                 ? "bg-blue-500"
-                                : "bg-gray-500"
+                                : "bg-gray-400"
                         }`}
                     />
                 ))}
