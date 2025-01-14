@@ -15,7 +15,7 @@ const Carousel = () => {
             setCurrentIndex((prevIndex) =>
                 prevIndex === images.length - 1 ? 0 : prevIndex + 1
             );
-        }, 3000); // Geser setiap 3 detik
+        }, 3 * 1000); // Geser setiap 3 detik
         return () => clearInterval(interval); // Bersihkan interval saat komponen tidak digunakan
     }, [images.length]);
 
@@ -25,7 +25,7 @@ const Carousel = () => {
     };
 
     return (
-        <div className="relative w-full flex items-center justify-center overflow-hidden -mt-[70vh] rounded-lg">
+        <div className="relative w-full px-[1rem] sm:px-[2rem] md:px-[3rem] lg:px-[4rem] flex items-center justify-center overflow-hidden -top-[1rem] sm:-top-[3rem] md:-top-[4rem] lg:-top-[5rem] rounded-lg">
             {/* Carousel Container */}
             <div
                 className="flex transition-transform duration-700 ease-in-out"
@@ -36,29 +36,14 @@ const Carousel = () => {
                 {images.map((image, index) => (
                     <div
                         key={index}
-                        className="flex-shrink-0 w-full h-[40vh] sm:h-[50vh] lg:h-[55vh] flex items-center justify-center"
+                        className="flex-shrink-0 w-full h-[20rem] sm:h-[25rem] md:h-[30rem] flex items-center justify-center"
                     >
                         <img
                             src={image}
                             alt={`Slide ${index + 1}`}
-                            className="w-full max-w-[1100px] h-full object-contain rounded-lg shadow-md"
+                            className="w-full max-w-[68.75rem] h-full object-contain rounded-lg shadow-md"
                         />
                     </div>
-                ))}
-            </div>
-
-            {/* Indikator */}
-            <div className="absolute bottom-4 flex justify-center gap-2">
-                {images.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => goToSlide(index)}
-                        className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
-                            index === currentIndex
-                                ? "bg-blue-500"
-                                : "bg-gray-400"
-                        }`}
-                    />
                 ))}
             </div>
         </div>

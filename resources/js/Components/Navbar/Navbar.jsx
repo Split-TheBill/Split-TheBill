@@ -1,59 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavbarMenu } from "@/mockData/data";
 
 const Navbar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
         <>
-            <nav className="container mx-auto flex justify-between items-center relative top-[-30px]">
-                {/* Logo Section */}
-                <div>
-                    <img
-                        src="images/Logo_new.svg"
-                        className="w-[200px] h-[200px]"
-                        alt="Logo"
-                    />
-                </div>
-                {/* Menu Section */}
-                <div className="hidden md:block">
-                    <ul className="flex items-center gap-[100px] text-white">
-                        {NavbarMenu.map((item) => {
-                            return (
+            {/* Navbar */}
+            <nav
+                className={`fixed top-0 left-0 w-full z-50 border-b border-gray-600 transition-all duration-300 ${
+                    isMenuOpen
+                        ? "bg-gray-900"
+                        : "bg-gray-900/70 backdrop-blur-md"
+                }`}
+            >
+                <div className="container mx-auto flex justify-between items-center px-4 py-2 md:py-3">
+                    {/* Logo Section */}
+                    <div className="-ml-4 sm:-ml-6">
+                        <a href="/">
+                            <img
+                                src="images/Logo_Split.png"
+                                alt="Logo"
+                                className="w-[8rem] sm:w-[11rem] h-auto"
+                            />
+                        </a>
+                    </div>
+
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex">
+                        <ul className="flex items-center gap-12 text-white">
+                            {NavbarMenu.map((item) => (
                                 <li key={item.id}>
                                     <a
                                         href={item.link}
-                                        className="inline-block py-1 px-3 hover:text-custom-dark font-extrabold"
+                                        className="text-base sm:text-lg font-medium  hover:text-blue-400 transition duration-300"
                                     >
                                         {item.title}
                                     </a>
                                 </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-                {/* Menu Section */}
-                <div className="flex items-center gap-6 relative z-10">
-                    {/* Tombol Login */}
-                    <a
-                        href="/login" // Gunakan "href" jika ingin redirect ke halaman login
-                        className="hover:bg-custom-dark text-white font-semibold hover:text-white rounded-[15px] border-2 border-custom-dark px-6 py-2 duration-200 hidden md:block"
-                    >
-                        Login
-                    </a>
+                            ))}
+                        </ul>
+                    </div>
 
-                    {/* Tombol Register */}
-                    <a
-                        href="/register" // Gunakan "href" jika ingin redirect ke halaman register
-                        className="hover:bg-custom-dark text-white hover:text-white rounded-[15px] bg-gradient-to-br from-custom-start to-custom-end px-6 py-2 duration-200 hidden md:block"
-                    >
-                        Register
-                    </a>
-                </div>
+                    {/* Action Buttons */}
+                    <div className="hidden md:flex items-center gap-4">
+                        {/* Login Button */}
+                        <a
+                            href="/login"
+                            className="px-4 py-2 border border-blue-500 rounded-[10px] text-white text-base font-medium hover:bg-blue-500 hover:text-white transition duration-300"
+                        >
+                            Login
+                        </a>
+                        {/* Register Button */}
+                        <a
+                            href="/register"
+                            className="px-4 py-2 bg-blue-500 text-white rounded-[10px] text-base font-medium hover:bg-blue-600 transition duration-300"
+                        >
+                            Register
+                        </a>
+                    </div>
 
-                {/* Hamburger Menu */}
-                <div className="md:hidden">
-                    <button aria-label="Open Menu">
+                    {/* Hamburger Menu */}
+                    <button
+                        className="md:hidden text-white focus:outline-none"
+                        onClick={toggleMenu}
+                    >
                         <svg
-                            className="w-6 h-6 text-gray-700"
+                            className="w-6 h-6"
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
@@ -69,8 +86,47 @@ const Navbar = () => {
                     </button>
                 </div>
             </nav>
-            {/* Mobile Sidebar Section */}
-            <div className="hidden">{/* Tambahkan Sidebar di sini */}</div>
+
+            {/* Mobile Menu */}
+            {isMenuOpen && (
+                <div className="fixed inset-0 bg-gray-900 bg-opacity-90 z-40">
+                    <div className="flex flex-col items-center justify-center h-full space-y-4 text-white">
+                        {NavbarMenu.map((item) => (
+                            <a
+                                key={item.id}
+                                href={item.link}
+                                className="text-lg font-medium hover:text-blue-400 transition duration-300"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {item.title}
+                            </a>
+                        ))}
+                        {/* Buttons in Mobile */}
+                        <div className="flex flex-col gap-3 mt-4">
+                            <a
+                                href="/login"
+                                className="px-6 py-2 border border-blue-500 text-white font-medium rounded-[10px] hover:bg-blue-500 hover:text-white transition duration-300"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Login
+                            </a>
+                            <a
+                                href="/register"
+                                className="px-6 py-2 bg-blue-500 text-white font-medium rounded-[10px] hover:bg-blue-600 transition duration-300"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Register
+                            </a>
+                        </div>
+                        <button
+                            className="mt-4 text-base font-medium text-gray-400 hover:text-gray-200 transition duration-300"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
         </>
     );
 };

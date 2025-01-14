@@ -1,20 +1,19 @@
 import React from "react";
 import HeroImg from "../../../../public/images/hero.svg";
+import Awan from "../../../../public/images/cloud_2.png";
 
 const Hero = () => {
-    const clouds = Array(4).fill("images/Awan_Section.svg");
-
     return (
         <>
-            <section className="relative top-[-150px]">
-                <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[650px] relative">
-                    {/* Split TheBill desc */}
-                    <div className="flex flex-col justify-center py-14 md:py-0 px-4 md:px-0">
-                        <div className="text-center md:text-left space-y-6 font-lexend ml-0 md:ml-[90px]">
-                            <h1 className="text-white text-3xl sm:text-4xl font-bold lg:text-5xl leading-relaxed xl:leading-normal">
+            <div className="relative -mt-[4rem] pt-[5rem] sm:pt-[6rem] md:pt-[7rem] lg:pt-[8rem]">
+                <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[34.375rem] sm:min-h-[37.5rem] md:min-h-[40.625rem] relative">
+                    {/* Split TheBill Description */}
+                    <div className="flex flex-col justify-center py-[2.5rem] sm:py-[3.5rem] md:py-0 px-[1rem] md:px-0">
+                        <div className="text-center md:text-left space-y-[1.5rem] font-lexend ml-0 md:ml-[5.625rem]">
+                            <h1 className="text-white text-[1.5rem] sm:text-[1.875rem] lg:text-[2.5rem] xl:text-[3.125rem] font-bold leading-relaxed sm:leading-snug lg:leading-normal">
                                 Selamat Datang di Split TheBill!
                             </h1>
-                            <p className="text-white xl:max-w-[500px] mx-auto md:mx-0 font-light">
+                            <p className="text-white max-w-[31.25rem] mx-auto md:mx-0 font-light text-[0.875rem] sm:text-[1rem] lg:text-[1.125rem]">
                                 Platform terbaik untuk berbagi langganan layanan
                                 aplikasi premium. Dengan kami, Anda bisa berbagi
                                 langganan dengan aman, legal, dan pastinya lebih
@@ -24,48 +23,21 @@ const Hero = () => {
                             </p>
                         </div>
                     </div>
+
                     {/* Ilustrasi */}
-                    <div className="flex justify-center items-center mx-4 md:ml-[100px]">
+                    <div className="flex justify-center items-center mx-[1rem] md:ml-[6.25rem]">
                         <img
                             src={HeroImg}
                             alt="Hero Image"
-                            className="w-full max-w-[450px]"
+                            className="w-full max-w-[21.875rem] sm:max-w-[25rem] md:max-w-[28.125rem] lg:max-w-[31.25rem]"
                         />
                     </div>
                 </div>
-            </section>
-
-            <div className="relative h-[400px] bottom-[100px]">
-                {/* Awan Horizontal (Atas) */}
-                <div className="absolute top-[-170px] w-full flex justify-center">
-                    {clouds.map((cloud, index) => (
-                        <img
-                            key={index}
-                            src={cloud}
-                            alt="Cloud"
-                            className={`w-[500px] h-auto ${
-                                index % 2 !== 0 ? "transform scale-x-[-1]" : ""
-                            }`}
-                        />
-                    ))}
-                </div>
-
-                {/* Awan Horizontal (Bawah, Flip Vertikal) */}
-                <div className="absolute bottom-[172px] w-full flex justify-center">
-                    {clouds.map((cloud, index) => (
-                        <img
-                            key={`vertical-${index}`}
-                            src={cloud}
-                            alt="Cloud Flipped Vertically"
-                            className={`w-[500px] h-auto ${
-                                index % 2 !== 0
-                                    ? "transform scale-x-[-1] scale-y-[-1]"
-                                    : "transform scale-y-[-1]"
-                            }`}
-                        />
-                    ))}
-                </div>
             </div>
+
+            {/* <div className="relative w-full h-[15rem] sm:h-[20rem] md:h-[25rem] lg:h-[30rem]">
+                <img src={Awan} alt="Awan" className="h-full w-full object-cover" />
+            </div> */}
         </>
     );
 };
