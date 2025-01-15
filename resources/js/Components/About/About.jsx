@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import HeroImg from "../../../../public/images/aboutus.svg";
 
 const About = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // Durasi animasi (ms)
+            once: true, // Animasi hanya berjalan sekali
+        });
+    }, []);
+
     return (
         <>
             <div className="relative -top-1 sm:-top-[4rem] md:-top-[7rem]">
                 <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[34.375rem] sm:min-h-[37.5rem] md:min-h-[40.625rem] relative">
                     {/* Gambar Ilustrasi */}
-                    <div className="flex justify-center items-center px-[1rem] sm:px-[2rem]">
+                    <div
+                        className="flex justify-center items-center px-[1rem] sm:px-[2rem]"
+                        data-aos="fade-right"
+                    >
                         <img
                             src={HeroImg}
                             alt="Hero"
@@ -16,7 +28,10 @@ const About = () => {
                     </div>
 
                     {/* Deskripsi */}
-                    <div className="flex flex-col justify-center py-[2.5rem] sm:py-[3rem] md:py-0">
+                    <div
+                        className="flex flex-col justify-center py-[2.5rem] sm:py-[3rem] md:py-0"
+                        data-aos="fade-left"
+                    >
                         <div className="text-center md:text-left space-y-[1.5rem] font-lexend mx-[1rem] md:mx-[1.5rem] lg:mx-[2rem]">
                             <h1 className="text-white text-[1.875rem] sm:text-[2.5rem] lg:text-[3.125rem] font-bold leading-relaxed sm:leading-snug lg:leading-normal">
                                 Tentang Kami
@@ -36,7 +51,6 @@ const About = () => {
                     </div>
                 </div>
             </div>
-
         </>
     );
 };

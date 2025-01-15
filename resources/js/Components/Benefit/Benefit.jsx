@@ -12,12 +12,12 @@ const Benefit = () => {
     return (
         <section className="relative min-h-screen flex flex-col items-center">
             {/* Heading */}
-            <div className="text-center mb-[2rem] mt-[3rem]">
+            <div className="text-center mb-[2rem] mt-[3rem] animate-fade-in">
                 <h1 className="text-white text-[1.875rem] sm:text-[2.25rem] font-bold leading-relaxed">
                     Keuntungan Berlangganan Aplikasi Premium
                 </h1>
                 <h1 className="text-white text-[1.875rem] sm:text-[2.25rem] font-bold leading-relaxed">
-                    Lebih Hemat dan Legal di Split Thebill
+                    Lebih Hemat dan Legal di Split TheBill
                 </h1>
             </div>
 
@@ -26,7 +26,7 @@ const Benefit = () => {
                 <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden mt-[0.25rem]">
                     <div className="grid grid-cols-2 gap-[1rem] md:grid-cols-3">
                         {/* Card 1 */}
-                        <div className="p-[1.5rem] text-center">
+                        <div className="p-[1.5rem] text-center animate-slide-up">
                             <div className="flex justify-center mb-[1rem]">
                                 <TagIcon className="w-[2.5rem] h-[2.5rem] text-yellow-500" />
                             </div>
@@ -36,7 +36,7 @@ const Benefit = () => {
                         </div>
 
                         {/* Card 2 */}
-                        <div className="p-[1.5rem] text-center">
+                        <div className="p-[1.5rem] text-center animate-slide-up delay-100">
                             <div className="flex justify-center mb-[1rem]">
                                 <LockClosedIcon className="w-[2.5rem] h-[2.5rem] text-blue-500" />
                             </div>
@@ -46,7 +46,7 @@ const Benefit = () => {
                         </div>
 
                         {/* Card 3 */}
-                        <div className="p-[1.5rem] text-center">
+                        <div className="p-[1.5rem] text-center animate-slide-up delay-200">
                             <div className="flex justify-center mb-[1rem]">
                                 <ChatBubbleLeftEllipsisIcon className="w-[2.5rem] h-[2.5rem] text-green-500" />
                             </div>
@@ -56,7 +56,7 @@ const Benefit = () => {
                         </div>
 
                         {/* Card 4 */}
-                        <div className="p-[1.5rem] text-center">
+                        <div className="p-[1.5rem] text-center animate-slide-up delay-300">
                             <div className="flex justify-center mb-[1rem]">
                                 <ShieldCheckIcon className="w-[2.5rem] h-[2.5rem] text-purple-500" />
                             </div>
@@ -66,7 +66,7 @@ const Benefit = () => {
                         </div>
 
                         {/* Card 5 */}
-                        <div className="p-[1.5rem] text-center">
+                        <div className="p-[1.5rem] text-center animate-slide-up delay-400">
                             <div className="flex justify-center mb-[1rem]">
                                 <CreditCardIcon className="w-[2.5rem] h-[2.5rem] text-red-500" />
                             </div>
@@ -76,7 +76,7 @@ const Benefit = () => {
                         </div>
 
                         {/* Card 6 */}
-                        <div className="p-[1.5rem] text-center">
+                        <div className="p-[1.5rem] text-center animate-slide-up delay-500">
                             <div className="flex justify-center mb-[1rem]">
                                 <BellIcon className="w-[2.5rem] h-[2.5rem] text-orange-500" />
                             </div>
@@ -105,6 +105,24 @@ const Benefit = () => {
             {/* Keyframes and Animations */}
             <style>
                 {`
+                    @keyframes fadeIn {
+                        0% {
+                            opacity: 0;
+                        }
+                        100% {
+                            opacity: 1;
+                        }
+                    }
+                    @keyframes slideUp {
+                        0% {
+                            opacity: 0;
+                            transform: translateY(30px);
+                        }
+                        100% {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
                     @keyframes cloud-left {
                         0% {
                             transform: translateX(-0.625rem) scaleX(-1);
@@ -127,11 +145,32 @@ const Benefit = () => {
                             transform: translateX(0.625rem);
                         }
                     }
+                    .animate-fade-in {
+                        animation: fadeIn 1s ease-in-out;
+                    }
+                    .animate-slide-up {
+                        animation: slideUp 0.8s ease-in-out forwards;
+                    }
                     .animate-cloud-left {
                         animation: cloud-left 5s ease-in-out infinite;
                     }
                     .animate-cloud-right {
                         animation: cloud-right 5s ease-in-out infinite;
+                    }
+                    .delay-100 {
+                        animation-delay: 0.1s;
+                    }
+                    .delay-200 {
+                        animation-delay: 0.2s;
+                    }
+                    .delay-300 {
+                        animation-delay: 0.3s;
+                    }
+                    .delay-400 {
+                        animation-delay: 0.4s;
+                    }
+                    .delay-500 {
+                        animation-delay: 0.5s;
                     }
                 `}
             </style>

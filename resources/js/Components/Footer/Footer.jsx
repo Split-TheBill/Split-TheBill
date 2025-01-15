@@ -74,13 +74,13 @@ const Footer = () => {
                     <ul className="space-y-[0.5rem]">
                         <li className="text-sm flex items-center space-x-[0.5rem]">
                             <span className="material-icons text-gray-600">
-                                email
+                                Email :
                             </span>
                             <span>SplitTheBill@gmail.com</span>
                         </li>
                         <li className="text-sm flex items-center space-x-[0.5rem]">
                             <span className="material-icons text-gray-600">
-                                phone
+                                Phone :
                             </span>
                             <span>0895390187540</span>
                         </li>

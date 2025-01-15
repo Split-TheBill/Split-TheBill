@@ -4,7 +4,7 @@ const Payment = () => {
 
     return (
         <>
-            <div className=" bg-gray-500 py-10">
+            <div className=" py-10">
                 <h2 className="text-center text-3xl md:text-3xl font-bold mb-8 text-white">
                     Metode Pembayaran
                 </h2>

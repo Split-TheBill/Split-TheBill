@@ -1,7 +1,6 @@
 import React from "react";
 
 const Subscription = () => {
-    
     return (
         <>
             <div className="relative text-white py-16">
@@ -16,7 +15,7 @@ const Subscription = () => {
                         <div className="flex flex-col space-y-6">
                             {/* Item 1 */}
                             <div className="flex items-start">
-                                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
+                                <div className="flex items-center justify-center w-10 h-10 aspect-square rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
                                     1
                                 </div>
                                 <div>
@@ -33,7 +32,7 @@ const Subscription = () => {
 
                             {/* Item 2 */}
                             <div className="flex items-start">
-                                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
+                                <div className="flex items-center justify-center w-10 h-10 aspect-square rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
                                     2
                                 </div>
                                 <div>
@@ -50,7 +49,7 @@ const Subscription = () => {
 
                             {/* Item 3 */}
                             <div className="flex items-start">
-                                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
+                                <div className="flex items-center justify-center w-10 h-10 aspect-square rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
                                     3
                                 </div>
                                 <div>
@@ -70,7 +69,7 @@ const Subscription = () => {
                         <div className="flex flex-col space-y-6">
                             {/* Item 4 */}
                             <div className="flex items-start">
-                                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
+                                <div className="flex items-center justify-center w-10 h-10 aspect-square rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
                                     4
                                 </div>
                                 <div>
@@ -87,7 +86,7 @@ const Subscription = () => {
 
                             {/* Item 5 */}
                             <div className="flex items-start">
-                                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
+                                <div className="flex items-center justify-center w-10 h-10 aspect-square rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
                                     5
                                 </div>
                                 <div>
@@ -104,7 +103,7 @@ const Subscription = () => {
 
                             {/* Item 6 */}
                             <div className="flex items-start">
-                                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
+                                <div className="flex items-center justify-center w-10 h-10 aspect-square rounded-full bg-blue-600 text-white font-bold text-lg mr-4">
                                     6
                                 </div>
                                 <div>
@@ -125,7 +124,6 @@ const Subscription = () => {
             </div>
         </>
     );
-    }
-
+};
 
 export default Subscription;

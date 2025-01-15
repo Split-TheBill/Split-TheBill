@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import Navbar from "../Components/Navbar/Navbar";
 import Hero from "../Components/Hero/Hero";
@@ -12,8 +12,18 @@ import Corausel from "@/Components/Corausel/Corausel";
 import Subscription from "@/Components/Subscription/Subscription";
 import Payment from "@/Components/Payment/Payment";
 import Footer from "@/Components/Footer/Footer";
+import Faq from "@/Components/Faq/Faq";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 const Home = () => {
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            AOS.init({
+                duration: 1000,
+            });
+        }
+    }, []);
     return (
         <>
             <div className="overflow-x-hidden">
@@ -29,12 +39,11 @@ const Home = () => {
                 <Catalog />
                 <Subscription />
                 <Payment />
-                <Footer/>
+                <Faq />
+                <Footer />
             </div>
         </>
     );
 };
 
 export default Home;
-
-

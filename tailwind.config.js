@@ -44,8 +44,28 @@ export default {
             boxShadow: {
                 "white-cloud": "0 20px 30px rgba(255, 255, 255, 0.5)",
             },
+
+            animation: {
+                'fade-in-left': 'fadeInLeft 1s ease-out',
+                'fade-in-right': 'fadeInRight 1s ease-out',
+                'cloud-move': 'cloudMove 10s linear infinite',
+            },
+            keyframes: {
+                fadeInLeft: {
+                    '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                    '100%': { opacity: '1', transform: 'translateX(0)' },
+                },
+                fadeInRight: {
+                    '0%': { opacity: '0', transform: 'translateX(50px)' },
+                    '100%': { opacity: '1', transform: 'translateX(0)' },
+                },
+                cloudMove: {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(100px)' },
+                },
         },
     },
 
     plugins: [forms],
+},
 };
